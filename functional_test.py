@@ -24,7 +24,7 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn('To-Do', header_text)
 
         # Check that there is an input bot (to insert a to-do item)
-        inputbox = self.browser.find_element_by_tag_name('hi').text
+        inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
@@ -32,7 +32,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # Type a single to-do item and hit enter
         inputbox.send_keys('Buy some milk')
-        input.box.send_keys(Keys.ENTER)
+        inputbox.send_keys(Keys.ENTER)
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
